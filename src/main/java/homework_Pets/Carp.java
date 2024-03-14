@@ -1,10 +1,15 @@
 package homework_Pets;
 
+import java.time.LocalDate;
+
 public class Carp extends Fish {
     private String lure;
 
-    public Carp(String breed, String name, Double cost, String character, double gillVolume, String lure) {
-        super(breed, name, cost, character, gillVolume);
+    public Carp() {
+    }
+
+    public Carp(String breed, String name, Double cost, String character, double gillVolume, String lure, LocalDate birthDate) {
+        super(breed, name, cost, character, gillVolume, birthDate);
         this.lure = lure;
     }
 
@@ -24,6 +29,7 @@ public class Carp extends Fish {
                 " cost: " + this.cost + "; " +
                 " character: " + this.character + "; " +
                 " gillVolume: " + super.getGillVolume() + "; " +
-                " lure: " + this.lure;
+                " lure: " + this.lure +
+                " birthDate: " + this.birthDate;
     }
 }

@@ -1,19 +1,23 @@
 package homework_Pets;
 
+import java.time.LocalDate;
+
 public abstract class AbstractAnimal implements Animal {
     protected String breed;
     protected String name;
     protected Double cost;
     protected String character;
+    protected LocalDate birthDate;
 
-    protected AbstractAnimal() {
+    public AbstractAnimal() {
     }
 
-    protected AbstractAnimal(String breed, String name, Double cost, String character) {
+    public AbstractAnimal(String breed, String name, Double cost, String character, LocalDate birthDate) {
         this.breed = breed;
         this.name = name;
         this.cost = cost;
         this.character = character;
+        this.birthDate = birthDate;
     }
 
     @Override
@@ -36,19 +40,24 @@ public abstract class AbstractAnimal implements Animal {
         return character;
     }
 
-    protected void setBreed(String breed) {
+    @Override
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBreed(String breed) {
         this.breed = breed;
     }
 
-    protected void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    protected void setCost(Double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
-    protected void setCharacter(String character) {
+    public void setCharacter(String character) {
         this.character = character;
     }
 
