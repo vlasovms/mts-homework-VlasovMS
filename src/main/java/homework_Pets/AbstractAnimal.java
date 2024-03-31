@@ -46,6 +46,11 @@ public abstract class AbstractAnimal implements Animal {
         return birthDate;
     }
 
+    @Override
+    public int getAge(){
+        return getBirthDate().until(LocalDate.now()).getYears();
+    }
+
     public void setBreed(String breed) {
         this.breed = breed;
     }
