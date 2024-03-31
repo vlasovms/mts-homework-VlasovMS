@@ -3,6 +3,7 @@ package homework_Pets;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 
 public interface AnimalRepository {
     Map<String, LocalDate> findLeapYearNames(List<Animal> animalList);
@@ -13,7 +14,7 @@ public interface AnimalRepository {
 
     Map<String, List<Animal>> findDuplicateList(List<Animal> animalList);
 
-    void findAverageAge(List<Animal> animalList);
+    Double findAverageAge(List<Animal> animalList);
 
     List<Animal> findOldAndExpensive(List<Animal> animalList);
 

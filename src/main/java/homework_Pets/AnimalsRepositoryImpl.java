@@ -45,17 +45,21 @@ public class AnimalsRepositoryImpl implements AnimalRepository {
     }
 
     @Override
-    public void findAverageAge(List<Animal> animalList) {
-        System.out.println(animalList.stream()
+    public Double findAverageAge(List<Animal> animalList) {
+        Double averageAnimalsAge = (animalList.stream()
                 .mapToInt(Animal::getAge)
-                .average());
+                .average()).orElse(0);
+
+        System.out.println(averageAnimalsAge);
+        return averageAnimalsAge;
     }
 
     @Override
     public List<Animal> findOldAndExpensive(List<Animal> animalList) {
+        Double animalsAveragePrice = getAveragePrice(animalList);
         return animalList.stream()
                 .filter(i -> i.getAge() > 5)
-                .filter(i -> i.getCost() > getAveragePrice(animalList))
+                .filter(i -> i.getCost() > animalsAveragePrice)
                 .sorted(Comparator.comparing(Animal::getBirthDate))
                 .collect(Collectors.toList());
     }
