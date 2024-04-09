@@ -12,8 +12,8 @@ public abstract class Fish extends AbstractAnimal {
         this.gillVolume = gillVolume;
     }
 
-    public Fish(String breed, String name, Double cost, String character, double gillVolume, LocalDate birthDate) {
-        super(breed, name, cost, character, birthDate);
+    public Fish(String breed, String name, Double cost, String character, double gillVolume, LocalDate birthDate, String secretInformation, String animalType) {
+        super(breed, name, cost, character, birthDate, secretInformation, animalType);
         this.gillVolume = gillVolume;
     }
 
