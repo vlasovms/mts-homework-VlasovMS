@@ -14,8 +14,8 @@ public abstract class Bird extends AbstractAnimal {
         this.beakSize = beakSize;
     }
 
-    public Bird(String breed, String name, Double cost, String character, Double wingspan, Double beakSize, LocalDate birthDate) {
-        super(breed, name, cost, character, birthDate);
+    public Bird(String breed, String name, Double cost, String character, Double wingspan, Double beakSize, LocalDate birthDate, String secretInformation, String animalType) {
+        super(breed, name, cost, character, birthDate, secretInformation, animalType);
         this.wingspan = wingspan;
         this.beakSize = beakSize;
     }

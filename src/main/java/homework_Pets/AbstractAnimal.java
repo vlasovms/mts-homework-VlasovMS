@@ -1,5 +1,9 @@
 package homework_Pets;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -8,17 +12,27 @@ public abstract class AbstractAnimal implements Animal {
     protected String name;
     protected Double cost;
     protected String character;
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     protected LocalDate birthDate;
+    @JsonSerialize(using = SecretInfoToBase64Serializer.class)
+    @JsonDeserialize(using = SecretInfoToBase64Deserializer.class)
+    protected String secretInformation;
+
+
+    protected String animalType;
 
     public AbstractAnimal() {
     }
 
-    public AbstractAnimal(String breed, String name, Double cost, String character, LocalDate birthDate) {
+    public AbstractAnimal(String breed, String name, Double cost, String character, LocalDate birthDate, String secretInformation, String animalType) {
         this.breed = breed;
         this.name = name;
         this.cost = cost;
         this.character = character;
         this.birthDate = birthDate;
+        this.secretInformation = secretInformation;
+        this.animalType = animalType;
     }
 
     @Override
@@ -42,13 +56,24 @@ public abstract class AbstractAnimal implements Animal {
     }
 
     @Override
+    public String getAnimalType() {
+        return animalType;
+    }
+
+    @Override
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
+    @JsonIgnore
     @Override
     public int getAge() {
         return getBirthDate() != null ? getBirthDate().until(LocalDate.now()).getYears() : 0;
+    }
+
+    @Override
+    public String getSecretInformation() {
+        return secretInformation;
     }
 
     public void setBreed(String breed) {

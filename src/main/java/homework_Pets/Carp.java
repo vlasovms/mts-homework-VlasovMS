@@ -1,5 +1,6 @@
 package homework_Pets;
 
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -9,8 +10,8 @@ public class Carp extends Fish {
     public Carp() {
     }
 
-    public Carp(String breed, String name, Double cost, String character, double gillVolume, String lure, LocalDate birthDate) {
-        super(breed, name, cost, character, gillVolume, birthDate);
+    public Carp(String breed, String name, Double cost, String character, double gillVolume, String lure, LocalDate birthDate, String secretInformation, String animalType) {
+        super(breed, name, cost, character, gillVolume, birthDate, secretInformation, animalType);
         this.lure = lure;
     }
 
@@ -44,6 +45,7 @@ public class Carp extends Fish {
                 " character: " + this.character + "; " +
                 " gillVolume: " + super.getGillVolume() + "; " +
                 " lure: " + this.lure +
-                " birthDate: " + this.birthDate;
+                " birthDate: " + this.birthDate +
+                " secretInfo: " + this.secretInformation;
     }
 }

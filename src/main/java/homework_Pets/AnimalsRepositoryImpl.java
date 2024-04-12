@@ -1,10 +1,15 @@
 package homework_Pets;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class AnimalsRepositoryImpl implements AnimalRepository {
+
     @Override
     public Map<String, LocalDate> findLeapYearNames(List<Animal> animalList) {
         return animalList.stream()
@@ -15,13 +20,21 @@ public class AnimalsRepositoryImpl implements AnimalRepository {
 
     @Override
     public Map<Animal, Integer> findOlderAnimal(List<Animal> animalList, Integer minAge) {
-        Map<Animal, Integer> olderAnimalMap = animalList.stream()
+        Map<Animal, Integer> olderAnimalMap = new HashMap<>();
+        olderAnimalMap = animalList.stream()
                 .filter(e -> e.getAge() > minAge)
                 .collect(Collectors.toMap(e -> e, Animal::getAge));
 
         if (olderAnimalMap.isEmpty()) {
             Animal maxAgeAnimal = Collections.min(animalList, Comparator.comparing(Animal::getBirthDate));    //Ищем животное с минимальной датой рождения, то есть самого старшего
             olderAnimalMap.put(maxAgeAnimal, maxAgeAnimal.getAge());
+        }
+        try {
+            File file = new File("resources/results/findOlderAnimals.json");
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(file, olderAnimalMap.keySet());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return olderAnimalMap;
     }

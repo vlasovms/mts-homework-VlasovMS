@@ -14,8 +14,8 @@ public class Eagle extends Bird {
         this.democraticRoar = democraticRoar;
     }
 
-    public Eagle(Double wingspan, Double beakSize, String democraticRoar, String breed, String name, Double cost, String character, LocalDate birthDate) {
-        super(breed, name, cost, character, wingspan, beakSize, birthDate);
+    public Eagle(Double wingspan, Double beakSize, String democraticRoar, String breed, String name, Double cost, String character, LocalDate birthDate, String secretInformation, String animalType) {
+        super(breed, name, cost, character, wingspan, beakSize, birthDate, secretInformation, animalType);
         this.democraticRoar = democraticRoar;
     }
 
@@ -29,7 +29,7 @@ public class Eagle extends Bird {
 
     @Override
     public String toString() {
-        return "Eagle: " + " breed: " + this.breed + "; " + " name: " + this.name + "; " + " cost: " + this.cost + "; " + " character: " + this.character + "; " + " democraticRoar: " + this.democraticRoar + "; " + " wingspan: " + super.getWingspan() + "; " + " beakSize: " + super.getBeakSize() + " birthDate: " + super.getBirthDate();
+        return "Eagle: " + " breed: " + this.breed + "; " + " name: " + this.name + "; " + " cost: " + this.cost + "; " + " character: " + this.character + "; " + " democraticRoar: " + this.democraticRoar + "; " + " wingspan: " + super.getWingspan() + "; " + " beakSize: " + super.getBeakSize() + " birthDate: " + super.getBirthDate() + " secretInfo: " + this.secretInformation;
     }
 
     @Override
