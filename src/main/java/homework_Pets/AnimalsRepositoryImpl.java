@@ -1,6 +1,7 @@
 package homework_Pets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -8,7 +9,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AnimalsRepositoryImpl implements AnimalRepository {
-    Map<Animal, Integer> olderAnimalMap;
 
     @Override
     public Map<String, LocalDate> findLeapYearNames(List<Animal> animalList) {
@@ -20,7 +20,7 @@ public class AnimalsRepositoryImpl implements AnimalRepository {
 
     @Override
     public Map<Animal, Integer> findOlderAnimal(List<Animal> animalList, Integer minAge) {
-        olderAnimalMap = new HashMap<>();
+        Map<Animal, Integer> olderAnimalMap = new HashMap<>();
         olderAnimalMap = animalList.stream()
                 .filter(e -> e.getAge() > minAge)
                 .collect(Collectors.toMap(e -> e, Animal::getAge));
