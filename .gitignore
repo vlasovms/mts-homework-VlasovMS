@@ -1,10 +1,9 @@
-.mvn
+.mvn/wrapper
 mvnw.cmd
 mvnw
 resources
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
