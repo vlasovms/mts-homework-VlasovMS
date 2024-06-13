@@ -52,23 +52,22 @@ public class Main {
         //Задание номер 6
         // Параллельная генерация случайных чисел: Реализуйте генерацию n случайных чисел в однопоточном и многопоточном режиме, измерьте и сравните время исполнения для этих реализаций.
         int max = 1000;
-        int countToGenerate = 1000000;
+        int countToGenerate = 1000000000;
         int threadCount = 5;
         int countToGenerateMultithreaded = countToGenerate / threadCount;
 
         long startTimeSingleThread = System.currentTimeMillis();
         for (int i = 0; i < countToGenerate; i++) {
-            System.out.print(ThreadLocalRandom.current().nextInt(0, max));
+            ThreadLocalRandom.current().nextInt(0, max);
         }
         long endTimeSingleThread = System.currentTimeMillis();
-
 
         long startTimeMultiThread = System.currentTimeMillis();
         ExecutorService executorService2 = Executors.newFixedThreadPool(threadCount);
         for (int i = 0; i < threadCount; i++) {
             executorService2.execute(() -> {
                 for (int j = 0; j < countToGenerateMultithreaded; j++) {
-                    System.out.print(ThreadLocalRandom.current().nextInt(0, max));
+                    ThreadLocalRandom.current().nextInt(0, max);
                 }
             });
         }
@@ -78,6 +77,7 @@ public class Main {
 
         System.out.println("Время выполнения одним потоком: " + (endTimeSingleThread - startTimeSingleThread));
         System.out.println("Время выполнения " + threadCount + " потоками: " + (endTimeMultiThread - startTimeMultiThread));
+
 
     }
 }
