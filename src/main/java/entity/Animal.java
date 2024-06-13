@@ -2,6 +2,7 @@ package entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Animal {
 
     @Id
@@ -32,11 +34,7 @@ public class Animal {
 
     @ManyToOne
     @JoinColumn(name = "type", referencedColumnName = "type", nullable = false)
-    //type первый - в этой таблице, type второй - в таблице типов
     private AnimalType animalType;
-
-    public Animal() {
-    }
 
     public Animal(String breed, String name, Double cost, String character, LocalDate birthDate, String secretInformation, AnimalType animalType) {
         this.breed = breed;

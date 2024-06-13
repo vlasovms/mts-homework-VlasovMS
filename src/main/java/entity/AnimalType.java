@@ -13,7 +13,4 @@ public class AnimalType {
     private Long id;
     @OneToMany(mappedBy = "animalType")
     private List<Animal> animals;
-
-    public AnimalType() {
-    }
 }

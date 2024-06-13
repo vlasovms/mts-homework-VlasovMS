@@ -12,7 +12,7 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepository;
 
-    public List<Animal> getAnimalsByName(Iterable<String> ids) {
+    public List<Animal> getAnimalsByIds(Iterable<Long> ids) {
         return animalRepository.findAllById(ids);
     }
 

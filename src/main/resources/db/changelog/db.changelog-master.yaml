@@ -1,7 +1,7 @@
 databaseChangeLog:
   - include:
-      file: 1schema.sql
+      file: 001-create-schema.sql
   - include:
-      file: 2tables.sql
+      file: 002-create-tables.sql
   - include:
-      file: 3data.sql
+      file: 003-fill-data-tables.sql
