@@ -13,16 +13,12 @@ public class StarterAnimalConfiguration {
     @Bean
     @Scope("prototype")
     public CreateAnimalService createAnimalService(StarterAnimalProperties props) {
-        System.out.println("We in app Configuration");
         ApplicationPropertiesHolder.setApplicationProperties(props);
         return new CreateAnimalServiceImpl(props);
     }
 
     @Bean
-    @Autowired
     public AnimalRepository animalRepository(CreateAnimalService createAnimalService) {
         return new AnimalsRepositoryImpl(createAnimalService);
     }
-
-
 }

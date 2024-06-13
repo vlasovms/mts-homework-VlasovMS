@@ -13,7 +13,6 @@ public class TestStarterAnimalConfiguration {
     @Bean
     @Scope("prototype")
     public CreateAnimalService createAnimalService(StarterAnimalProperties props) {
-        System.out.println("We in Test Configuration");
         ApplicationPropertiesHolder.setApplicationProperties(props);
         return new CreateAnimalServiceImpl(props);
     }
