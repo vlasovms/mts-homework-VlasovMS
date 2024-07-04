@@ -9,11 +9,9 @@ public class MultiThreadCounter {      // Задание №2
         counter.incrementAndGet();
     }
 
-    public static int get(){
+    public static int get() {
         return counter.get();
     }
-
-
 
 
 }
